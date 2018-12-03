@@ -30,7 +30,11 @@ python knn.py
 ### reviewExploration
 1. Put the 'yelp_academic_dataset_business.json' in the datapreProcessing file.
 2. Now you can run all the notebook file.
-3. Run review generator. First download the pretrained model in the same file.
+3. Train the LSTM model should on GPU, it will cost a long time.
+```sh
+python Training_LSTM.py
+```
+3. Run review generator. first download the pretrained model in the same file.
 
 ```sh
 python reviewGenerator.py
