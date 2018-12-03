@@ -3,6 +3,10 @@
 # Data
 https://www.yelp.com/dataset/challenge
 
+# Report
+
+# Slides
+
 # Content
 ## Fei_coding
 1. Business Data clean
@@ -17,5 +21,14 @@ https://www.yelp.com/dataset/challenge
 2. Run the data Processing.
 3. Run all the models in the 'ClassificationModel' file. All the result will save in the 'result'files, text and graph.
 
+```sh
+python knn.py
+```
+
 ### reviewExploration
 1. Put the 'yelp_academic_dataset_business.json' in the datapreProcessing file.
+2. Now you can run all the notebook file.
+3. Run review generator.
+```sh
+python knn.py
+```
