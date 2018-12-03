@@ -34,7 +34,7 @@ python knn.py
 ```sh
 python Training_LSTM.py
 ```
-3. Run review generator. first download the pretrained model in the same file.
+3. Run review generator. first download the pretrained model(https://drive.google.com/file/d/1-PNTwH2kw_mb6-Ni5z3DE3G0npI1lhyu/view?usp=sharing) in the same file.
 
 ```sh
 python reviewGenerator.py
