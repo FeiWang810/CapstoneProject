@@ -28,7 +28,8 @@ python knn.py
 ### reviewExploration
 1. Put the 'yelp_academic_dataset_business.json' in the datapreProcessing file.
 2. Now you can run all the notebook file.
-3. Run review generator.
+3. Run review generator. First download the pretrained model in the same file.
+
 ```sh
-python knn.py
+python reviewGenerator.py
 ```
