@@ -4,8 +4,10 @@
 https://www.yelp.com/dataset/challenge
 
 # Report
+https://github.com/FeiWang810/CapstoneProject/blob/master/Capstone%20Report_Wei%20Hao%20Fei%20Wang.pdf
 
 # Slides
+https://github.com/FeiWang810/CapstoneProject/blob/master/Capstone%20Project%20Wei%20Hao_Fei%20Wang.pdf
 
 # Content
 ## Fei_coding
