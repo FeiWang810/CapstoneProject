@@ -16,6 +16,11 @@ https://github.com/FeiWang810/CapstoneProject/blob/master/Capstone%20Project%20W
 3. Review Analysis
 4. Review Generator
 
+## Wei_coding
+1. Business Data Processing
+2. Regression Models
+3. Cross Validation 
+
 # Run
 ## Fei_coding
 ### business_data_prediction
@@ -26,7 +31,6 @@ https://github.com/FeiWang810/CapstoneProject/blob/master/Capstone%20Project%20W
 ```sh
 python knn.py
 ```
-
 ### reviewExploration
 1. Put the 'yelp_academic_dataset_business.json' in the datapreProcessing file.
 2. Now you can run all the notebook file.
@@ -39,3 +43,16 @@ python Training_LSTM.py
 ```sh
 python reviewGenerator.py
 ```
+## Wei_coding
+### Data Processing
+1. Download yelp data and unzip it,and put the 'yelp_academic_dataset_business.json' in the datapreProcessing file.
+2. Run the data processing in R.mnd, and EDA jupiter notebook.
+
+### Buiness Data Predicitive Model
+1. Use the 'business(1).csv' data in the Wei_coding file.
+2. Run all the jupyter notebook file. 
+3. SVC model should take a longer time to finish. 
+
+
+
+
