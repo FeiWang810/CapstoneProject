@@ -19,7 +19,7 @@ https://www.yelp.com/dataset/challenge
 ### business_data_prediction
 1. Download yelp data and unzip it, put the data in the 'dataPreprocessing' file.
 2. Run the data Processing.
-3. Run all the models in the 'ClassificationModel' file. All the result will save in the 'result'files, text and graph.
+3. Run all the models in the 'ClassificationModel' file. All the result will save in the result files, text and graph. Such as:
 
 ```sh
 python knn.py
