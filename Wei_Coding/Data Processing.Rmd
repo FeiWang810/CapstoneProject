@@ -1,0 +1,124 @@
+---
+title: "Capstone_Wei Hao"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+setwd("C:/Users/vicky/Desktop/Capstone/Yelp Dataset")
+library(jsonlite)
+business<-stream_in(file("yelp_academic_dataset_business.json"))
+business
+str(business)
+
+summary(business)
+business1<-flatten(business)
+View(business1)
+str(business1)
+library(magrittr)
+library(dplyr)
+library(tidyr)
+business1 %>% mutate(categories= as.character(categories)) %>% select(categories)%>% unnest(categories)
+```
+```{r}
+write.csv(business1,"business.csv")
+```
+
+
+```{r}
+#Get rid of variables that we are temporarily not using. 
+df<-select(business1, -starts_with("neighborhood"), -starts_with("hours"), -starts_with("attribute"))
+df
+write.csv(df, "Business.csv")
+```
+
+```{r}
+#How many businesses in each state and each city?
+statebusiness<-as.factor(df$state)
+summary(statebusiness)
+citybusiness<-as.factor(df$city)
+summary(citybusiness)
+
+
+``````
+```{r}
+df%>%unnest(categories) %>%
+ select(name, categories)%>%group_by(categories)%>%summarise(n=n())%>%arrange(desc(n))%>%head(20)
+```
+
+
+```{r}
+#Top Business Categories that are currently open
+category<-as.character(df$categories)
+topcatogory<-df%>%filter(is_open==1)%>%unnest(categories)%>%select(name, categories)%>%group_by(categories)%>%summarise(n=n())%>%arrange(desc(n))%>%head(30)
+topcatogory
+
+#Although there are so many categories with similiar names, we could have a gist of the main categories like restuarant, nail and beauty salons, coffee and tea, auto repair, and bank services. 
+write.csv(topcatogory, "TopCat.csv")
+
+```
+
+```{r}
+#Restuarants
+library(stringr)
+library(dplyr)
+df%>% filter(str_detect(categories,  "Restaurant"))%>% unnest(categories)%>%filter(categories != "Restaurants")%>% count(categories)%>% 
+  arrange(desc(n))
+#Top Category in the 10 States
+df%>% filter(str_detect(categories,  "Restaurant"))%>% unnest(categories)%>%filter(categories != "Restaurants")%>% count(state, categories)%>% filter(n > 10) %>%
+ group_by(state) %>%
+ top_n(1, n)%>%
+  arrange(desc(n))
+
+```
+
+```{r}
+
+#Beauty Salons
+
+df%>% filter(str_detect(categories,  "Beauty"))%>% unnest(categories)%>%count(categories)%>% 
+  arrange(desc(n))
+#Top Category in the 10 States
+df%>% filter(str_detect(categories,  "Beauty"))%>% unnest(categories)%>% count(state, categories)%>% filter(n > 10) %>%
+ group_by(state) %>%
+ top_n(1, n)
+
+```
+
+```{r}
+df1<-select(business1, -starts_with("neighborhood"), -starts_with("hours"), -starts_with("attribute"), -starts_with("categories"), -starts_with("business_id"), -starts_with("name"),-starts_with("address"), -starts_with("longitude"),-starts_with("latitude"),-starts_with("postal_code"),-starts_with("is_open"))
+dfbystatestar<-df1%>%filter(state != '') 
+a<-group_by(dfbystatestar, state)
+View(dfbystatestar)
+View(a)
+
+write.csv(dfbystatestar, "Business_1.csv")
+
+dfbystatestar1<-dfbystatestar%>%summarise(total_businesses=n(), total_reviews=sum(review_count), avg_rating=round(mean(stars),2)) %>% arrange(desc(avg_rating))
+View(dfbystatestar1)
+
+write.csv(dfbystatestar1, "Business_2.csv")
+```
+```{r}
+df2<- data.frame(state=business$state, reviews=business$review_count, star=business$stars)
+write.csv(df2, "df2.csv")
+```
+
+```{r}
+setwd("C:/Users/vicky/Desktop/Capstone/Yelp Dataset")
+library(jsonlite)
+user<-stream_in(file("yelp_academic_dataset_user.json"))
+View(user)
+str(user)
+
+```
+
+```{r}
+user1<-user[-c(5:10, 12:22)]
+user1
+write.csv(user1, "User.csv")
+```
+
